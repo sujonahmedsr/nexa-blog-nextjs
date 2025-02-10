@@ -43,11 +43,11 @@ const Navbar = () => {
       </div>
 
       <div>
-        <Link
-          href="/blogs/create"
-          className="px-4 py-3 bg-teal-600 text-white rounded-full hover:bg-teal-500"
+      <Link
+          href="/login"
+          className="px-4 py-2 rounded bg-teal-600 text-white hover:bg-teal-500"
         >
-          Post Blog
+          Login
         </Link>
       </div>
     </nav>
