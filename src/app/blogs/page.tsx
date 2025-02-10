@@ -3,11 +3,11 @@ import BlogCard from "@/components/ui/BlogCard";
 // import Spinner from "@/components/ui/Spinner";
 // import { useGetBlogsQuery } from "@/redux/apis/blogs.slice";
 import { Blog } from "@/types";
-// import { Metadata } from "next";
+import { Metadata } from "next";
 
-// export const metadata: Metadata = {
-//   title: "NexaBlog | Blogs",
-// };
+export const metadata: Metadata = {
+  title: "NexaBlog | Blogs",
+};
 
 const BlogsPage = async () => {
   const res = await fetch("http://localhost:5000/blogs", {
