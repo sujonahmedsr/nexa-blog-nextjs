@@ -24,7 +24,7 @@ export default function RootLayout({
     <Providers>
       <html lang="en">
         <body className={roboto.className}>
-          <div className="min-h-screen">{children}</div>
+          <div>{children}</div>
         </body>
       </html>
     </Providers>

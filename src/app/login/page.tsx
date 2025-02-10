@@ -35,7 +35,6 @@ const LoginPage = () => {
             width={500}
             height={200}
             alt="login page"
-            className="w-full h-auto"
           />
         </div>
 
