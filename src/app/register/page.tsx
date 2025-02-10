@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
+import brandLogo from "@/assets/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -28,23 +29,28 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="my-10">
-      <h1 className="text-center text-4xl font-bold mb-5">
-        Register <span className="text-teal-500">Now</span>
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div>
-          <Image
-            src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?t=st=1710081713~exp=1710085313~hmac=f637c194f1f143e63a84950cbf978997453777c872adf4aebbbecdaa445601a1&w=740"
-            width={500}
-            height={200}
-            alt="login page"
-            className="w-full h-[85%] object-cover"
-          />
-        </div>
+    <div className="container mx-auto my-5">
+      <div className="flex flex-col gap-5 items-center">
+        <Link href="/" className="flex items-center gap-1 text-4xl">
+          <Image src={brandLogo} width={40} height={40} alt="brand logo" />
+          <span className="font-bold">NexaBlog</span>
+        </Link>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center mt-5">
+
+        <Image
+          src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?t=st=1710081713~exp=1710085313~hmac=f637c194f1f143e63a84950cbf978997453777c872adf4aebbbecdaa445601a1&w=740"
+          width={500}
+          height={200}
+          alt="login page"
+          className="object-cover"
+        />
 
         <div className="w-[80%] mx-auto bg-white p-6 shadow-lg rounded-lg">
           <form onSubmit={handleSubmit(onSubmit)}>
+            <h1 className="text-center text-4xl mb-5 font-bold">
+              Register <span className="text-teal-500">Now</span>
+            </h1>
             <div className="mb-4">
               <label className="block text-gray-700 font-medium mb-2">
                 Full Name

@@ -1,4 +1,6 @@
 "use client";
+
+import brandLogo from "@/assets/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -20,9 +22,12 @@ const LoginPage = () => {
 
   return (
     <div className="my-10 w-[90%] mx-auto">
-      <h1 className="text-center text-4xl mb-5 font-bold">
-        Login <span className="text-teal-500">Here</span>
-      </h1>
+      <div className="flex flex-col gap-5 items-center">
+        <Link href="/" className="flex items-center gap-1 text-4xl">
+          <Image src={brandLogo} width={40} height={40} alt="brand logo" />
+          <span className="font-bold">NexaBlog</span>
+        </Link>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
         <div>
           <Image
@@ -36,6 +41,9 @@ const LoginPage = () => {
 
         <div className="w-[80%] mx-auto bg-white p-6 shadow-lg rounded-lg">
           <form onSubmit={handleSubmit(onSubmit)}>
+            <h1 className="text-center text-4xl mb-5 font-bold">
+              Login <span className="text-teal-500">Here</span>
+            </h1>
             <div className="mb-6">
               <label
                 htmlFor="email"
