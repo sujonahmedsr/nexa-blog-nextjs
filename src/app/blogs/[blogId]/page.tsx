@@ -1,10 +1,5 @@
 import BlogDetailsCard from "@/components/ui/BlogDetailsCard";
 import { Blog } from "@/types";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "NexaBlog | Blogs Details",
-};
 
 export const generateStaticParams = async () => {
   const res = await fetch("http://localhost:5000/blogs");
@@ -15,7 +10,22 @@ export const generateStaticParams = async () => {
   }));
 };
 
+// for individual blog show title 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ blogId: string }>;
+}) {
+  const { blogId } = await params;
 
+  const res = await fetch(`http://localhost:5000/blogs/${blogId}`);
+  const blog = await res.json();
+
+  return {
+    title: blog.title,
+    description: blog.description,
+  };
+}
 
 const BlogDetailsPage = async ({
     params,
