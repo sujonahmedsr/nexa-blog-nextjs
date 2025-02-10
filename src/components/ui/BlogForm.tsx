@@ -1,9 +1,10 @@
+import { createBlog } from '@/actions/createBlogs';
 import Form from 'next/form'
 const BlogForm = () => {
   return (
     <div className="my-10">
       <div className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
-        <Form action={'/blogs'}>
+        <Form action={createBlog}>
           <h2 className="text-2xl font-semibold mb-6 text-teal-600 text-center">
             Create Blog
           </h2>
