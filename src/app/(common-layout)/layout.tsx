@@ -2,7 +2,8 @@ import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import React from "react";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+const layout = async ({ children }: { children: React.ReactNode }) => {
+
     return (
         <div>
             <Header />

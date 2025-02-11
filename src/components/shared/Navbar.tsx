@@ -4,8 +4,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import brandLogo from "@/assets/logo.png";
 import Image from "next/image";
+import { signOut } from "next-auth/react";
 
-const Navbar = () => {
+type UserProps = {
+  user?: {
+    name?: string | null | undefined;
+    email?: string | null | undefined;
+    image?: string | null | undefined;
+  };
+};
+
+const Navbar = ({ session }: { session: UserProps | null }) => {
+
   const pathname = usePathname();
 
   const navLinks = [
@@ -31,11 +41,10 @@ const Navbar = () => {
           <Link
             key={href}
             href={href}
-            className={`${
-              pathname === href
-                ? "text-teal-600 font-bold"
-                : "text-gray-700 hover:text-6eal-700"
-            }`}
+            className={`${pathname === href
+              ? "text-teal-600 font-bold"
+              : "text-gray-700 hover:text-6eal-700"
+              }`}
           >
             {label}
           </Link>
@@ -43,12 +52,21 @@ const Navbar = () => {
       </div>
 
       <div>
-      <Link
-          href="/login"
-          className="px-4 py-2 rounded bg-teal-600 text-white hover:bg-teal-500"
-        >
-          Login
-        </Link>
+
+        {
+          session?.user ? <button onClick={()=>signOut()}
+            className="px-4 py-2 rounded bg-teal-600 text-white hover:bg-teal-500"
+          >
+            Log Out
+          </button> : <Link
+            href="/login"
+            className="px-4 py-2 rounded bg-teal-600 text-white hover:bg-teal-500"
+          >
+            Login
+          </Link>
+        }
+
+
       </div>
     </nav>
   );

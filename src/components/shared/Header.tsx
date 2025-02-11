@@ -1,11 +1,15 @@
 
+import { getServerSession } from "next-auth";
 import Navbar from "./Navbar";
+import { authOptions } from "@/utils/authOptions";
 
 
-const Header = () => {
+const Header = async () => {
+  const session = await getServerSession(authOptions)
+
   return (
     <>
-      <Navbar />
+      <Navbar session={session}/>
     </>
   );
 };
